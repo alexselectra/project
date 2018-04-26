@@ -1,0 +1,17 @@
+<h1>New Model</h1>
+<%= link_to 'Back', cars_path %>
+
+<div style="margin-left: 200px; margin-right: 200px;">  
+  <%= form_for @model do |f| %>
+    <div style="margin-bottom: 10px;">
+      <p style="margin-bottom: 5px;">Model du véhicule</p>
+      <%= f.text_field :car_model %>
+    </div>
+    <%= link_to 'Add Brand', new_brand_path%> 
+    <br/> 
+    <%= f.select(:brand_id, Brand.all.collect {|u| [u.car_brand, u.id]}, :prompt => 'Select') %>
+    <div style="margin-top: 20px;">
+      <%= f.submit "Add Model" %>   
+    </div>
+  <% end %>
+</div>
